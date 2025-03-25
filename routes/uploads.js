@@ -21,12 +21,12 @@ router.post('/img', upload.single('imgbackground'), (req, res) => {
     remove(name)
     return newpath
   }
-
+  
   async function blobbuffer(blob) {
     const arrayBuffer = await blob.arrayBuffer()
     return Buffer.from(arrayBuffer)
   }
-
+  //* Removiendo el fondo
   function remove(name) {
     const input = `./uploads/${name}`
     const uotput = `./uploads/remove.png`
