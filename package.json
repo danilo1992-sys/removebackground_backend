@@ -16,8 +16,10 @@
     "standard": "^17.1.2"
   },
   "dependencies": {
-    "@imgly/background-removal-node": "^1.4.5",
+    "@imgly/background-removal-node": "^1.4.3",
     "cors": "^2.8.5",
-    "multer": "^1.4.5-lts.2"
+    "express-zip": "^3.0.0",
+    "multer": "^1.4.5-lts.2",
+    "requests": "^0.3.0"
   }
 }
