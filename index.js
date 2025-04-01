@@ -2,7 +2,6 @@ import cors from 'cors'
 import express from 'express'
 import router from './routes/uploads.js'
 import download from './routes/download.js'
-process.loadEnvFile()
 
 const app = express()
 
