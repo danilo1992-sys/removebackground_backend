@@ -12,23 +12,24 @@ const upload = multer({ dest: 'uploads/' })
 router.post('/img', upload.single('imgbackground'), (req, res) => {
   const file = req.file
   save(file)
-
   res.send('File uploaded!')
 
-  function save (file) {
-    const name = file.originalname
+
+  //* Guardando la imagen 
+  function save(file) {
+    const name = file.originalnames
     const newpath = `./uploads/${name}`
     fs.renameSync(file.path, newpath)
     remove(name)
     return newpath
   }
-
-  async function blobbuffer (blob) {
+  //* Convierte la imagen en arraybuffer 
+  async function blobbuffer(blob) {
     const arrayBuffer = await blob.arrayBuffer()
     return Buffer.from(arrayBuffer)
   }
   //* Removiendo el fondo
-  function remove (name) {
+  function remove(name) {
     const input = `./uploads/${name}`
     const uotput = './uploads/remove.png'
     if (!fs.existsSync(input)) {
