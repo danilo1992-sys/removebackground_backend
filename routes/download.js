@@ -17,6 +17,11 @@ download.get('/download', (req, res) => {
     if (err) {
       res.status(500).json({ error: 'Error al descargar el archivo.' })
     }
+    try {
+      fs.unlinkSync(filePath)
+    } catch (error) {
+      console.log('Error al descargar la imagen', error);
+    }
   })
 })
 
